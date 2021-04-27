@@ -18,12 +18,12 @@ jobs:
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
-          server_address: smtp.qq.com
-          server_port: 465
+          server_address: smtp.office365.com
+          server_port: 587
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Shanghai Weather Report (${{env.REPORT_DATE}})
           body: file://result.html
-          to: chuck2015@outlook.com
+          to: ${{ secrets.MAIL_TO }}
           from: GitHub Actions
           content_type: text/html
